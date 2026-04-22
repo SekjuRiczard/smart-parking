@@ -1,45 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { allBusySlots, releaseSlot, getUserSlot } from "../../api/authService"; 
+import React, { useEffect, useState } from 'react';
+import { allBusySlots, releaseSlot, getUserSlot } from '../../api/authService';
 
 function BusySlots() {
-  const [busySlots, setBusySlots] = useState([]); 
-  const [userSlot, setUserSlot] = useState(null); 
-  const [loading, setLoading] = useState(true); 
+  const [busySlots, setBusySlots] = useState([]);
+  const [userSlot, setUserSlot] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(false);
-        const login = localStorage.getItem("login"); 
-        if (!login) {
-          console.error("Brak loginu w localStorage!");
-          setLoading(true);
-          return;
-        }
-        const busySlotsData = await allBusySlots(); 
-        const userSlotData = await getUserSlot(login); 
-        setBusySlots(busySlotsData || []);
-        setUserSlot(userSlotData || null);
-      
+      const login = localStorage.getItem('login');
+      if (!login) {
+        console.error('Brak loginu w localStorage!');
+        setLoading(true);
+        return;
+      }
+      const busySlotsData = await allBusySlots();
+      const userSlotData = await getUserSlot(login);
+      setBusySlots(busySlotsData || []);
+      setUserSlot(userSlotData || null);
     };
 
     fetchData();
-  }, []); 
-
+  }, []);
 
   const handleRelease = async () => {
     try {
-      const result = await releaseSlot(); 
+      const result = await releaseSlot();
       if (result) {
-        alert("Parking slot released successfully!");
+        alert('Parking slot released successfully!');
         const busySlotsData = await allBusySlots();
         setBusySlots(busySlotsData || []);
         setUserSlot(null);
       } else {
-        alert("Failed to release parking slot.");
+        alert('Failed to release parking slot.');
       }
     } catch (error) {
-      console.error("Błąd podczas zwalniania slotu:", error);
-      alert("An error occurred while releasing the parking slot.");
+      console.error('Błąd podczas zwalniania slotu:', error);
+      alert('An error occurred while releasing the parking slot.');
     }
   };
 
@@ -63,7 +61,7 @@ function BusySlots() {
           <div key={item.id} className="slot-card">
             <div className="slot-info">
               <p>ID: {item.id}</p>
-              <p>Active: {item.isEmpty ? "Yes" : "No"}</p>
+              <p>Active: {item.isEmpty ? 'Yes' : 'No'}</p>
             </div>
           </div>
         ))}

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 body {
   background-color: rgb(219, 225, 237);
   margin: 0px;
@@ -9,9 +9,8 @@ body {
   flex-direction: row;
   height: 100vh;
   width: 100%;
-
 }
-.dashboard{
+.dashboard {
   max-height: 100vh;
 }
 
@@ -20,7 +19,9 @@ body {
 .logo {
   width: 100%;
   height: auto;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
   border-radius: 50%;
   margin-bottom: 20px;
 }
@@ -38,26 +39,25 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  transition: width 0.3s ease, opacity 0.3s ease;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 nav.collapsed {
-  width: 4vh; 
+  width: 4vh;
   opacity: 0.8;
 }
-
 
 nav ul {
   border-left: 7px solid rgb(201, 206, 221);
   list-style-type: none;
   padding: 0;
   flex-direction: column;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
-
 
 nav li {
   display: flex;
@@ -68,12 +68,11 @@ nav li {
   color: rgb(94, 112, 151);
   font-size: 19px;
   letter-spacing: 1px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   cursor: pointer;
   border-radius: 5px;
   margin-bottom: 10px;
 }
-
 
 nav li:hover {
   background-color: rgb(185, 201, 215);
@@ -81,22 +80,19 @@ nav li:hover {
   transform: translateX(10px);
 }
 
-
 nav.collapsed li {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-
 nav.collapsed .logo {
   opacity: 0;
 }
 
-
 .toggle-button {
   position: absolute;
   top: 50%;
-  right: -18px; 
+  right: -18px;
   transform: translateY(-50%);
   color: rgb(94, 112, 151);
   border: none;
@@ -109,19 +105,19 @@ nav.collapsed .logo {
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .toggle-button:hover {
   background-color: rgb(201, 206, 221);
- 
 }
-
 
 .navLink {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
 
 .toggle-button svg {
@@ -130,7 +126,7 @@ nav.collapsed .logo {
 }
 
 nav.collapsed .toggle-button svg {
-  transform: rotate(180deg); 
+  transform: rotate(180deg);
 }
 
 nav:hover {
@@ -140,8 +136,8 @@ nav:hover {
 /*                                                             HEADER */
 
 header {
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   background-color: rgb(219, 225, 237);
   margin: 0 auto;
   width: 100%;
@@ -155,13 +151,13 @@ header {
   width: 20%;
   height: 100%;
   font-size: 21px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 600;
   letter-spacing: 3px;
 }
 .headerMain {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   border-bottom: 7px solid rgb(181, 196, 216);
   width: 100%;
   height: 20%;
@@ -178,22 +174,22 @@ header {
   margin-top: 3px;
   margin-right: 5px;
   font-size: 21px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   transition: all 0.3s ease;
 }
 .headerUserMenagment:hover {
-  background-color: rgb(188, 212, 232); 
-  transform: scale(1.05); 
-  cursor: pointer; 
+  background-color: rgb(188, 212, 232);
+  transform: scale(1.05);
+  cursor: pointer;
 }
 header > div {
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
 
 .Kafle {
-  display: flex; 
+  display: flex;
   justify-content: flex-start;
   width: 100%;
   height: 80%;
@@ -202,9 +198,9 @@ header > div {
 }
 .kafel {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 16px; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
   background-color: rgb(229, 238, 248);
   width: 20%;
   height: 80%;
@@ -213,9 +209,9 @@ header > div {
   font-size: 50px;
 }
 .kafelData {
-  flex: 1; 
+  flex: 1;
   font-size: 21px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 200;
 }
 
@@ -225,16 +221,15 @@ header > div {
   display: flex;
   flex-direction: column;
   width: 100%;
-  
 }
 
 main {
   background-color: rgb(229, 238, 248);
-  padding: 0.60rem;
-  display: flex; 
-  flex-direction: row; 
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: row;
   height: 55%;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .mainChart {
@@ -244,9 +239,9 @@ main {
   align-items: center;
   background-color: #ffffff;
   height: 100%;
-  width: 65%; 
+  width: 65%;
   font-size: 21px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 200;
 }
 
@@ -258,12 +253,10 @@ main {
   background-color: #ffffff;
   height: 96%;
   width: 25%;
-  padding: 10px; 
+  padding: 10px;
   font-size: 21px;
-  font-family: "Lato", sans-serif;
-  
+  font-family: 'Lato', sans-serif;
 }
-
 
 /*                                                             FOOTER*/
 
@@ -271,8 +264,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(219, 225, 237); 
-  font-family:lato;
+  background-color: rgb(219, 225, 237);
+  font-family: lato;
   color: rgb(0, 0, 0);
   width: 100%;
   height: 6%;
@@ -314,7 +307,7 @@ main {
   background-color: rgb(218, 229, 240);
   width: 100%;
   height: 100vh;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 18px;
   padding: 20px;
 }
@@ -363,13 +356,15 @@ main {
 .showUsersButton {
   border: none;
   background-color: rgb(169, 169, 223);
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 18px;
   width: 220px;
   height: 50px;
   cursor: pointer;
   border-radius: 8px;
-  transition: background-color 0.3s, transform 0.2s;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
 }
 
 .showUsersButton:hover {
@@ -390,7 +385,9 @@ main {
   height: 50px;
   cursor: pointer;
   border-radius: 8px;
-  transition: background-color 0.3s, transform 0.2s;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
 }
 
 .setOccupyButton:hover {
@@ -438,20 +435,20 @@ main {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #34495e;
 }
 
 /*                                                             LOGOWANIE */
 .login {
-  font-family: "Lato", sans-serif;
-  max-width: 1200px; 
+  font-family: 'Lato', sans-serif;
+  max-width: 1200px;
   margin: 50px auto;
   padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; 
+  gap: 40px;
   background: linear-gradient(145deg, #ffffff, #f1f3f7);
   border-radius: 16px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
@@ -467,8 +464,8 @@ main {
 
 .loginContent {
   display: flex;
-  flex-direction: row; 
-  gap: 40px; 
+  flex-direction: row;
+  gap: 40px;
   justify-content: center;
   width: 100%;
 }
@@ -488,7 +485,7 @@ main {
 .loginForm h1 {
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   font-size: 24px;
@@ -550,12 +547,12 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f9fa; 
-  border: 1px solid #ddd; 
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
   margin: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .parkingChart {
@@ -566,7 +563,7 @@ main {
   font-family: 'Arial', sans-serif;
   font-size: 20px;
   font-weight: bold;
-  color: #333; 
+  color: #333;
   margin-bottom: 15px;
 }
 
@@ -577,12 +574,12 @@ main {
 }
 
 .freeSlots {
-  color: #28a745; 
+  color: #28a745;
   font-weight: bold;
 }
 
 .busySlots {
-  color: #dc3545; 
+  color: #dc3545;
   font-weight: bold;
 }
 
@@ -632,7 +629,7 @@ main {
 
 .registerHeader {
   font-size: 28px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   text-align: center;
   margin-bottom: 30px;
   color: #2c3e50;
@@ -687,7 +684,7 @@ main {
   align-items: center;
   font-size: 18px;
   margin-right: 8px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #34495e;
 }
 
@@ -720,7 +717,9 @@ main {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .registerSubmitButton:hover {
@@ -758,7 +757,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #34495e;
   background-color: rgb(230, 231, 238);
   padding: 10px;
@@ -776,7 +775,9 @@ main {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 /*                                                                    BUSYSLOTS */
 /* Container styles */
@@ -785,7 +786,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #f7f7f7;
 }
 
@@ -878,7 +879,7 @@ main {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 2rem auto;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #333;
 }
 
