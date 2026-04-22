@@ -1,48 +1,26 @@
 import React, { useState } from 'react';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import PasswordIcon from '@mui/icons-material/Password';
-import BadgeIcon from '@mui/icons-material/Badge';
-import SendIcon from '@mui/icons-material/Send';
-import { registerUser } from '../../api/authService'; // Import funkcji rejestracji
 import { useNavigate } from 'react-router-dom';
+import { LockOpen, PermIdentity, Password, Badge, Send } from '@mui/icons-material';
+import { registerUser } from '../../api/authService';
 
 function Register() {
-  const [formData, setFormData] = useState({
-    login: '',
-    name: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [form, setForm] = useState({ login: '', name: '', password: '', confirmPassword: '' });
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    const { login, name, password, confirmPassword } = formData;
+    if (form.password !== form.confirmPassword) return alert('Passwords do not match!');
 
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
+    const { confirmPassword, ...registerData } = form;
+    const res = await registerUser(registerData);
+    if (res?.success) navigate('/');
+  }
 
-    const registerData = {
-      login,
-      name,
-      password,
-    };
-    const result = await registerUser(registerData);
-    if (result.success) {
-      navigate('/');
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const iconSx = { marginRight: '10px', width: 45, height: 45 };
 
   return (
     <div className="registerContainer">
@@ -51,90 +29,35 @@ function Register() {
         <div className="registerLeft">
           <form className="registerForm" onSubmit={handleSubmit}>
             <h1 style={{ fontFamily: 'sans-serif' }}>Create an Account</h1>
-            <LockOpenIcon
-              sx={{
-                width: '90px',
-                height: '90px',
-                color: 'purple',
-              }}
-            />
+            <LockOpen sx={{ width: 90, height: 90, color: 'purple' }} />
             <ul>
               <li>
                 <p>
-                  <PermIdentityIcon
-                    sx={{
-                      marginRight: '10px',
-                      width: '45px',
-                      height: '45px',
-                    }}
-                  />
-                  <input
-                    type="text"
-                    name="login"
-                    placeholder="Username"
-                    value={formData.login}
-                    onChange={handleChange}
-                  />
+                  <PermIdentity sx={iconSx} />
+                  <input type="text" name="login" placeholder="Username" value={form.login} onChange={handleChange} />
                 </p>
               </li>
               <li>
                 <p>
-                  <BadgeIcon
-                    sx={{
-                      marginRight: '10px',
-                      width: '45px',
-                      height: '45px',
-                    }}
-                  />
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
+                  <Badge sx={iconSx} />
+                  <input type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} />
                 </p>
               </li>
               <li>
                 <p>
-                  <PasswordIcon
-                    sx={{
-                      marginRight: '10px',
-                      width: '45px',
-                      height: '45px',
-                    }}
-                  />
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                  />
+                  <Password sx={iconSx} />
+                  <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} />
                 </p>
               </li>
               <li>
                 <p>
-                  <PasswordIcon
-                    sx={{
-                      marginRight: '10px',
-                      width: '45px',
-                      height: '45px',
-                    }}
-                  />
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                  />
+                  <Password sx={iconSx} />
+                  <input type="password" name="confirmPassword" placeholder="Confirm Password" value={form.confirmPassword} onChange={handleChange} />
                 </p>
               </li>
               <li>
                 <button className="registerSubmitButton" type="submit">
-                  <p>Register</p>
-                  <SendIcon />
+                  <p>Register</p><Send />
                 </button>
               </li>
             </ul>
