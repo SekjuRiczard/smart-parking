@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 function NavigationItem({ itemDescription, icon }) {
   return (
     <div>
-      {icon} 
+      {icon}
       <span className="itemsTitle">{itemDescription}</span>
     </div>
   );

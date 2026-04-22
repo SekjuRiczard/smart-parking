@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-import PasswordIcon from "@mui/icons-material/Password";
-import BadgeIcon from "@mui/icons-material/Badge";
-import SendIcon from "@mui/icons-material/Send";
-import { registerUser } from "../../api/authService"; // Import funkcji rejestracji
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import PasswordIcon from '@mui/icons-material/Password';
+import BadgeIcon from '@mui/icons-material/Badge';
+import SendIcon from '@mui/icons-material/Send';
+import { registerUser } from '../../api/authService'; // Import funkcji rejestracji
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [formData, setFormData] = useState({
-    login: "",
-    name: "",
-    password: "",
-    confirmPassword: "",
+    login: '',
+    name: '',
+    password: '',
+    confirmPassword: '',
   });
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { login, name, password, confirmPassword } = formData;
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      alert('Passwords do not match!');
       return;
     }
 
@@ -30,9 +30,9 @@ const navigate = useNavigate();
       name,
       password,
     };
-    const result = await registerUser(registerData); 
+    const result = await registerUser(registerData);
     if (result.success) {
-      navigate("/");
+      navigate('/');
     }
   };
 
@@ -50,12 +50,12 @@ const navigate = useNavigate();
       <div className="registerContent">
         <div className="registerLeft">
           <form className="registerForm" onSubmit={handleSubmit}>
-            <h1 style={{ fontFamily: "sans-serif" }}>Create an Account</h1>
+            <h1 style={{ fontFamily: 'sans-serif' }}>Create an Account</h1>
             <LockOpenIcon
               sx={{
-                width: "90px",
-                height: "90px",
-                color: "purple",
+                width: '90px',
+                height: '90px',
+                color: 'purple',
               }}
             />
             <ul>
@@ -63,9 +63,9 @@ const navigate = useNavigate();
                 <p>
                   <PermIdentityIcon
                     sx={{
-                      marginRight: "10px",
-                      width: "45px",
-                      height: "45px",
+                      marginRight: '10px',
+                      width: '45px',
+                      height: '45px',
                     }}
                   />
                   <input
@@ -81,9 +81,9 @@ const navigate = useNavigate();
                 <p>
                   <BadgeIcon
                     sx={{
-                      marginRight: "10px",
-                      width: "45px",
-                      height: "45px",
+                      marginRight: '10px',
+                      width: '45px',
+                      height: '45px',
                     }}
                   />
                   <input
@@ -99,9 +99,9 @@ const navigate = useNavigate();
                 <p>
                   <PasswordIcon
                     sx={{
-                      marginRight: "10px",
-                      width: "45px",
-                      height: "45px",
+                      marginRight: '10px',
+                      width: '45px',
+                      height: '45px',
                     }}
                   />
                   <input
@@ -117,9 +117,9 @@ const navigate = useNavigate();
                 <p>
                   <PasswordIcon
                     sx={{
-                      marginRight: "10px",
-                      width: "45px",
-                      height: "45px",
+                      marginRight: '10px',
+                      width: '45px',
+                      height: '45px',
                     }}
                   />
                   <input
