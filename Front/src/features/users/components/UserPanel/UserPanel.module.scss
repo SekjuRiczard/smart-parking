@@ -1,0 +1,65 @@
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
+
+.panelCard {
+  @include flex-column;
+  @include animate(scaleInSmall, $transition-base);
+  background: $color-white;
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  border: 1px solid $color-gray-100;
+  max-width: 500px;
+  gap: $spacing-lg;
+}
+
+.header {
+  @include flex-between;
+  justify-content: flex-start;
+  gap: $spacing-md;
+  border-bottom: 1px solid $color-gray-50;
+  padding-bottom: $spacing-md;
+}
+
+.avatar {
+  font-size: 4rem !important;
+  color: $color-primary;
+}
+
+.roleTag {
+  font-size: $font-size-xs;
+  background: $color-purple-50;
+  color: $color-purple;
+  padding: 0.25rem $spacing-sm;
+  border-radius: $radius-sm;
+  font-weight: 700;
+}
+
+.logoutBtn {
+  @include flex-center;
+  @include smooth-transition;
+  @include hover-lift;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  background: $color-white;
+  border: 1px solid $color-red-500;
+  color: $color-red-500;
+  border-radius: $radius-md;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:hover {
+    background: $color-red-500;
+    color: $color-white;
+  }
+}
+
+.active {
+  color: $color-emerald;
+  font-weight: 700;
+}
+
+.inactive {
+  color: $color-red-500;
+  font-weight: 700;
+}

@@ -1,0 +1,73 @@
+@import '../../../styles/abstracts/mixins';
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/animations';
+
+.card {
+  @include flex-between;
+  background: $color-white;
+  padding: 1.5rem;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid $color-gray-100;
+  min-height: 10rem;
+  width: 100%;
+
+  @include smooth-transition;
+  @include hover-scale;
+  @include animate(scaleInSmall, $transition-base);
+
+  &__content {
+    @include flex-column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 70%;
+  }
+
+  &__title {
+    font-size: $font-size-sm;
+    color: $color-gray-500;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80%;
+      height: 4px;
+      background: $color-purple-light;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: $color-gray-900;
+    margin: 0;
+
+    @include respond-to('sm') {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__icon-container {
+    @include flex-center;
+    background: $color-gray-50;
+    padding: 1rem;
+    border-radius: $radius-md;
+    color: inherit;
+
+    svg {
+      font-size: 3rem;
+      @include respond-to('sm') {
+        font-size: 2.25rem;
+      }
+    }
+  }
+}

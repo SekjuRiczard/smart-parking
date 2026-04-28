@@ -1,0 +1,82 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+@import '../../../styles/abstracts/animations';
+
+.footer {
+  background-color: $color-white;
+  border-top: 1px solid $color-gray-100;
+  padding: $spacing-md;
+  flex-shrink: 0;
+  @include animate(fadeIn, $transition-slow, 0s, ease-in-out);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-lg;
+  width: 100%;
+  padding: 0 $spacing-lg;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.info {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.text {
+  @include flex-center;
+  gap: $spacing-xs;
+  color: $color-gray-800;
+  font-weight: 600;
+  font-size: $font-size-base;
+  margin: 0;
+}
+
+.iconHeart {
+  color: $color-red-500;
+  font-size: 1.25rem !important;
+  @include animate(wiggle, 2s, 0s, ease-in-out);
+  animation-iteration-count: infinite;
+}
+
+.copyright {
+  color: $color-gray-500;
+  font-size: $font-size-sm;
+}
+
+.links {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.link {
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-lg;
+  background: $color-gray-50;
+  border-radius: $radius-md;
+  color: $color-gray-900;
+  text-decoration: none;
+  font-weight: 500;
+
+  @include smooth-transition;
+  @include hover-lift;
+
+  &:hover {
+    background: $color-gray-900;
+    color: $color-white;
+    box-shadow: $shadow-md;
+  }
+
+  .icon {
+    font-size: 1.5rem !important;
+  }
+}

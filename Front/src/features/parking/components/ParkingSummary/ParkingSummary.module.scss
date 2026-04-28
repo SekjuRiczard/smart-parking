@@ -1,0 +1,311 @@
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
+
+.parkingContainer {
+  width: 100%;
+  padding: $spacing-md;
+  animation: fadeInUp $transition-slow ease-out;
+
+  @include respond-to('md') {
+    padding: $spacing-lg;
+  }
+
+  @include respond-to('lg') {
+    padding: $spacing-lg $spacing-xl;
+  }
+}
+
+.parkingWrapper {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+
+  @include respond-to('md') {
+    gap: $spacing-xl;
+  }
+}
+
+.parkingHeader {
+  @include flex-column;
+  gap: $spacing-sm;
+
+  @include respond-to('md') {
+    gap: $spacing-md;
+  }
+}
+
+.parkingHeaderTitleRow {
+  @include flex-center;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    gap: $spacing-lg;
+  }
+}
+
+.parkingHeaderIcon {
+  font-size: 2rem !important;
+  color: $color-primary;
+
+  @include respond-to('md') {
+    font-size: 2.5rem !important;
+  }
+}
+
+.parkingHeaderTitle {
+  font-size: $font-size-2xl;
+  color: $color-gray-900;
+  font-weight: 700;
+  margin: 0;
+
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+}
+
+.parkingHeaderSubtitle {
+  font-size: $font-size-sm;
+  color: $color-gray-600;
+  margin: 0;
+
+  @include respond-to('md') {
+    font-size: $font-size-base;
+  }
+}
+
+.parkingCard {
+  position: relative;
+  @include flex-column;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  @include transition(box-shadow);
+
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+
+  @include respond-to('md') {
+    padding: $spacing-xl;
+    gap: $spacing-xl;
+    box-shadow: $shadow-lg;
+  }
+}
+
+.parkingCardGradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    $color-primary 0%,
+    $color-primary-light 100%
+  );
+}
+
+.parkingCardContent {
+  @include flex-column;
+  gap: $spacing-lg;
+  position: relative;
+  z-index: 1;
+
+  @include respond-to('md') {
+    gap: $spacing-xl;
+  }
+}
+
+.parkingProgress {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.parkingProgressBar {
+  width: 100%;
+  height: 8px;
+  background-color: $color-gray-200;
+  border-radius: $radius-md;
+  overflow: hidden;
+}
+
+.parkingProgressFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    $color-primary 0%,
+    $color-primary-light 100%
+  );
+  border-radius: $radius-md;
+  @include transition(width);
+}
+
+.parkingProgressLabel {
+  font-size: $font-size-sm;
+  color: $color-gray-700;
+  font-weight: 600;
+  margin: 0;
+
+  @include respond-to('md') {
+    font-size: $font-size-base;
+  }
+}
+
+.parkingStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    gap: $spacing-lg;
+  }
+}
+
+.statCard {
+  @include flex-column;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  background-color: $color-gray-50;
+  border-left: 4px solid $color-gray-400;
+  @include transition(transform, background-color);
+
+  @include respond-to('md') {
+    padding: $spacing-lg;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.statCardFree {
+    border-left-color: $color-primary;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.05);
+    }
+  }
+
+  &.statCardBusy {
+    border-left-color: $color-red-500;
+
+    &:hover {
+      background-color: rgba($color-red-500, 0.05);
+    }
+  }
+}
+
+.statCardFree {
+  border-left-color: $color-primary;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.05);
+  }
+}
+
+.statCardBusy {
+  border-left-color: $color-red-500;
+
+  &:hover {
+    background-color: rgba($color-red-500, 0.05);
+  }
+}
+
+.statCardContent {
+  @include flex-center;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    gap: $spacing-lg;
+  }
+}
+
+.statCardIconWrapper {
+  @include flex-center;
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-md;
+  flex-shrink: 0;
+
+  &.statCardIconWrapperFree {
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+  }
+
+  &.statCardIconWrapperBusy {
+    background-color: rgba($color-red-500, 0.1);
+    color: $color-red-500;
+  }
+
+  @include respond-to('md') {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.statCardIcon {
+  font-size: 1.5rem !important;
+
+  @include respond-to('md') {
+    font-size: 1.75rem !important;
+  }
+}
+
+.statCardDetails {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.statCardLabel {
+  font-size: $font-size-xs;
+  color: $color-gray-600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-weight: 600;
+
+  @include respond-to('md') {
+    font-size: $font-size-sm;
+  }
+}
+
+.statCardValue {
+  font-size: $font-size-2xl;
+  color: $color-gray-900;
+  font-weight: 700;
+  margin: 0;
+
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+}
+
+.parkingTotal {
+  @include flex-center;
+  padding: $spacing-md;
+  background-color: $color-primary;
+  border-radius: $radius-md;
+  color: $color-white;
+}
+
+.parkingTotalText {
+  font-size: $font-size-base;
+  font-weight: 600;
+  margin: 0;
+
+  span {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    margin-left: $spacing-sm;
+  }
+
+  @include respond-to('md') {
+    font-size: $font-size-lg;
+
+    span {
+      font-size: $font-size-2xl;
+    }
+  }
+}
