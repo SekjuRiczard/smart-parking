@@ -16,15 +16,15 @@ Below are the key screens of the application illustrating the user interface and
 
 | Login Page | Registration Page |
 |:---:|:---:|
-| ![Login](./public/Login.png) | ![Register](./public/Register.png) |
+| ![Login](/Front/public/Login.png) | ![Register](./public/Register.png) |
 
 | User Dashboard | Admin Panel |
 |:---:|:---:|
-| ![Dashboard](./public/Dashboard.png) | ![Admin](./public/Admin.png) |
+| ![Dashboard](/Front/public/Dashboard.png) | ![Admin](/Front/public/Admin.png) |
 
 | Occupancy Trends (Busy) | Available Spots (Free) |
 |:---:|:---:|
-| ![BusySlots](./public/BusySlots.png) | ![FreeSlots](./public/FreeSlots.png) |
+| ![BusySlots](/Front/public/BusySlots.png) | ![FreeSlots](/Front/public/FreeSlots.png) |
 
 ## 3. Tech Stack
 

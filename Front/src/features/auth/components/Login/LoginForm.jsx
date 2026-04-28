@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LockOpen, Person, Key, ArrowForward } from '@mui/icons-material';
 import { loginUser } from '../../api/authService';
-import styles from './Login.module.scss'; // Osobny plik dla loginu
+import styles from './Login.module.scss';
 
 export const LoginForm = ({ onSwitch }) => {
   const [form, setForm] = useState({ login: '', password: '' });
@@ -14,11 +14,11 @@ export const LoginForm = ({ onSwitch }) => {
     const res = await loginUser(form);
 
     if (res.success) {
-      setStatus('Zalogowano pomyślnie!');
+      setStatus('Logged in successfully!');
       setTimeout(() => navigate('/dashboard'), 500);
     } else {
       setStatus(
-        res.status === 403 ? 'Nieprawidłowy login lub hasło.' : 'Wystąpił błąd'
+        res.status === 403 ? 'Incorrect login or password.' : 'An error occurred'
       );
     }
   }
@@ -60,7 +60,7 @@ export const LoginForm = ({ onSwitch }) => {
         {status && (
           <p
             className={
-              status.includes('pomyślnie') ? styles.success : styles.error
+              status.includes('successfully') ? styles.success : styles.error
             }
           >
             {status}
