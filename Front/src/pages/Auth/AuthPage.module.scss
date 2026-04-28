@@ -1,0 +1,46 @@
+@import '../../styles/abstracts/variables';
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/animations';
+
+.authPage {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 1.5rem;
+  background-color: $color-gray-50;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1.2fr;
+    padding: 0;
+    gap: 0;
+  }
+}
+
+.formSection {
+  @include flex-center;
+  width: 100%;
+  animation: fadeInLeft 0.6s ease-out;
+}
+
+.previewSection {
+  display: none;
+  background: $color-gray-100;
+
+  @include respond-to('md') {
+    @include flex-center;
+    padding: 2rem;
+  }
+}
+
+.previewPlaceholder {
+  width: 100%;
+  max-width: 50rem;
+  height: 30rem;
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-xl;
+  @include flex-center;
+  flex-direction: column;
+  gap: 1rem;
+}

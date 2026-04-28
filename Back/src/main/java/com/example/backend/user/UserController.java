@@ -13,11 +13,13 @@ import java.util.Optional;
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
+
     private final UserRepository userRepository;
     private final JwtService jwtService;
 
     @GetMapping("/{login}")
     public ResponseEntity<Optional<User>> getUserByLogin(@PathVariable String login) {
+
         return ResponseEntity.ok(userRepository.findByLogin(login));
     }
 
@@ -41,6 +43,7 @@ public class UserController {
                 .map(user -> {
                     user.setActive(!user.isActive());
                     userRepository.save(user);
+
                     return ResponseEntity.ok("User status updated successfully");
                 })
                 .orElse(ResponseEntity.notFound().build());

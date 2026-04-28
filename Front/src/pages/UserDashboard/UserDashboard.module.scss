@@ -1,0 +1,19 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  width: 100%;
+}
+.loader {
+  @include flex-center;
+  height: 50vh;
+  font-weight: 700;
+  color: $color-primary;
+  font-size: $font-size-lg;
+}

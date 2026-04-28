@@ -1,0 +1,55 @@
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $spacing-lg;
+  width: 100%;
+}
+
+.card {
+  @include flex-column;
+  @include animate(fadeInUp, $transition-base);
+  background: $color-white;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  border: 1px solid $color-gray-100;
+  gap: $spacing-md;
+
+  &Inactive {
+    opacity: 0.6;
+    background: $color-gray-50;
+  }
+}
+
+.btnOff,
+.btnOn {
+  @include smooth-transition;
+  padding: $spacing-sm;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  font-weight: 700;
+  background: none;
+}
+
+.btnOff {
+  border: 1px solid $color-red-500;
+  color: $color-red-500;
+
+  &:hover {
+    background: $color-red-500;
+    color: $color-white;
+  }
+}
+
+.btnOn {
+  border: 1px solid $color-primary;
+  color: $color-primary;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+  }
+}

@@ -1,0 +1,118 @@
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
+
+.card {
+  width: 100%;
+  max-width: 26rem;
+  background: $color-white;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: $shadow-xl;
+  @include flex-column;
+  gap: 2rem;
+  animation: fadeInRight 0.5s ease-out backwards;
+}
+
+.header {
+  text-align: center;
+  @include flex-column;
+  gap: 0.75rem;
+
+  svg {
+    font-size: 3.5rem !important;
+    color: $color-primary;
+    align-self: center;
+  }
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: $color-gray-900;
+    margin: 0;
+  }
+}
+
+.form {
+  @include flex-column;
+  gap: 1.25rem;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  background: #fdfdfd;
+  border: 1.5px solid $color-gray-200;
+  border-radius: 0.75rem;
+  padding: 0.8rem 1rem;
+  @include transition(border-color, box-shadow);
+
+  &:focus-within {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 4px rgba($color-primary, 0.08);
+  }
+
+  svg {
+    color: $color-gray-400;
+    font-size: 1.25rem;
+    transition: color 0.2s;
+  }
+
+  &:focus-within svg {
+    color: $color-primary;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    margin-left: 0.75rem;
+    font-size: 1rem;
+    color: $color-gray-900;
+
+    &::placeholder {
+      color: $color-gray-400;
+    }
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, $color-gray-900 0%, $color-black 100%);
+  color: $color-white;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  @include flex-center;
+  gap: 0.5rem;
+  @include hover-lift;
+  margin-top: 0.5rem;
+}
+
+.footer {
+  text-align: center;
+
+  button {
+    font-size: 0.875rem;
+    color: $color-gray-500;
+
+    span {
+      color: $color-primary;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+}
+
+.error {
+  color: $color-red-500;
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+}
+.success {
+  color: $color-primary;
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+}

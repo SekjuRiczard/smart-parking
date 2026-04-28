@@ -25,12 +25,12 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Dodaj CORS
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/parking-slots/state").permitAll()
-                        .requestMatchers("/api/v1/auth/**").permitAll() // Logowanie i rejestracja - publiczne
-                        .requestMatchers("/api/v1/user/{login}/toggleActive").hasRole("ADMIN") // Wymagany ADMIN
-                        .anyRequest().authenticated() // Wszystkie inne endpointy wymagają autoryzacji
+                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/api/v1/user/{login}/toggleActive").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
@@ -42,14 +42,14 @@ public class SecurityConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Dozwolony tylko frontend na localhost:5173
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Dozwolone metody HTTP
-        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept")); // Dozwolone nagłówki
-        configuration.setExposedHeaders(List.of("Authorization")); // Nagłówki widoczne w odpowiedzi
-        configuration.setAllowCredentials(true); // Zezwól na przesyłanie ciasteczek/uwierzytelnianie
-
+        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept"));
+        configuration.setExposedHeaders(List.of("Authorization")); //
+        configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration); // Konfiguracja dla wszystkich endpointów
+        source.registerCorsConfiguration("/**", configuration);
+
         return source;
     }
 }
