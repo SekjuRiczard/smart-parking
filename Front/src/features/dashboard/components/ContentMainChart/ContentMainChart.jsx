@@ -14,7 +14,8 @@ import styles from './ContentMainChart.module.scss';
 
 export const ContentMainChart = () => {
   const [data, setData] = useState(
-    () => JSON.parse(localStorage.getItem('slotData')) || []);
+    () => JSON.parse(localStorage.getItem('slotData')) || []
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +38,7 @@ export const ContentMainChart = () => {
         console.error('Błąd pobierania danych:', error);
       }
     };
-    
+
     fetchData();
     const i = setInterval(fetchData, 10000);
 

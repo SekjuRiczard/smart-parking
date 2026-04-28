@@ -6,8 +6,6 @@ import styles from './BusySlots.module.scss';
 export const BusySlots = () => {
   const [busySlots, setBusySlots] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // Pobieramy login aktualnego użytkownika
   const currentLogin = localStorage.getItem('login');
 
   const fetchBusySlots = async () => {
