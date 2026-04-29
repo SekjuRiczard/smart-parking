@@ -98,7 +98,7 @@ Configure your MySQL database settings in ```src/main/resources/application.prop
 Run the application:
 ***Make sure that file have right permission ```chmod +x mvnw```***
 ```bash
-./mvnw spring-boot:run
+.\mvnw.cmd spring-boot:run
 ```
 
 ### 3. Frontend Setup
@@ -108,4 +108,9 @@ cd Front
 ```
 Run ```npm install``` and ```npm run dev```
 
+## 6. Project Status / Future Plans
 
+The project is currently functional, but we are planning further improvements. 
+
+**Upcoming Feature: Mocked Data Mode**
+We are planning to introduce a standalone frontend version that utilizes mocked test data. This feature will allow users to launch, explore, and test the entire user interface directly in the browser, completely bypassing the need to set up the backend server and database. This will make it much easier to showcase the application's flow and design without any local environment configuration.
