@@ -16,7 +16,7 @@ Below are the key screens of the application illustrating the user interface and
 
 | Login Page | Registration Page |
 |:---:|:---:|
-| ![Login](/Front/public/Login.png) | ![Register](./public/Register.png) |
+| ![Login](/Front/public/Login.png) | ![Register](/Front/public/Register.png) |
 
 | User Dashboard | Admin Panel |
 |:---:|:---:|
