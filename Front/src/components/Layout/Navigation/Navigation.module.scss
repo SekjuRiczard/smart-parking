@@ -1,0 +1,145 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+$toggle-size: 3rem;
+
+.navToggleFixed {
+  position: fixed;
+  top: 2.25rem;
+  left: 1.5rem;
+  z-index: 3000;
+  width: $toggle-size;
+  height: $toggle-size;
+  @include flex-center;
+  background: $color-white;
+  color: $color-gray-900;
+  border: 1px solid $color-gray-100;
+  border-radius: $radius-md;
+  cursor: pointer;
+  box-shadow: $shadow-md;
+  @include smooth-transition;
+  padding: 0;
+  font-size: 1.5rem;
+
+  &:hover {
+    background: $color-gray-50;
+    color: $color-primary;
+    transform: scale(1.05);
+  }
+
+  &Closed {
+    box-shadow: $shadow-lg;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: $color-white;
+  border-right: 1px solid $color-gray-100;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  @include smooth-transition;
+  transform: translateX(-100%);
+
+  @include respond-to('md') {
+    width: 25vw;
+    min-width: 280px;
+    max-width: 400px;
+  }
+
+  &Open {
+    transform: translateX(0);
+  }
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  height: $toggle-size;
+  margin-bottom: 2.5rem;
+  padding-left: 4rem;
+}
+
+.sidebarLogo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  @include smooth-transition;
+
+  &Img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  &Text {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: $color-gray-900;
+    white-space: nowrap;
+    @include smooth-transition;
+  }
+}
+
+.sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem;
+  height: 3.5rem;
+  border-radius: $radius-md;
+  color: $color-gray-600;
+  text-decoration: none;
+  @include smooth-transition;
+
+  &Icon {
+    @include flex-center;
+    min-width: 2.5rem;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  &Label {
+    margin-left: 1rem;
+    white-space: nowrap;
+    font-weight: 600;
+    @include smooth-transition;
+  }
+
+  &:hover {
+    background: $color-gray-50;
+    color: $color-primary;
+  }
+
+  &Active {
+    background: $color-green-50;
+    color: $color-primary;
+
+    .navLinkIcon {
+      color: $color-primary;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(#000000, 0.5);
+  z-index: 1900;
+  display: flex;
+  animation: fadeIn $transition-base ease;
+}

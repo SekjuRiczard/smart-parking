@@ -1,0 +1,26 @@
+.dashboardHeader {
+  grid-row: 2;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.icon {
+  font-size: 2rem !important;
+  &Free {
+    color: #22c55e;
+  }
+  &Busy {
+    color: #ef4444;
+  }
+  &Date {
+    color: #3b82f6;
+  }
+}

@@ -1,0 +1,12 @@
+.dashboardContent {
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}

@@ -1,0 +1,185 @@
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
+
+.infoCard {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  animation: fadeInUp $transition-slow ease-out;
+
+  @include respond-to('md') {
+    gap: $spacing-xl;
+    box-shadow: $shadow-lg;
+  }
+}
+
+.infoCardHeader {
+  @include flex-column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: linear-gradient(
+    135deg,
+    $color-primary 0%,
+    $color-primary-dark 100%
+  );
+  color: $color-white;
+  align-items: center;
+  text-align: center;
+
+  @include respond-to('md') {
+    padding: $spacing-xl $spacing-2xl;
+    gap: $spacing-lg;
+  }
+}
+
+.infoCardIconWrapper {
+  @include flex-center;
+  width: 60px;
+  height: 60px;
+  background-color: rgba($color-white, 0.2);
+  border-radius: $radius-lg;
+  font-size: 2rem;
+
+  @include respond-to('md') {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+}
+
+.infoCardTitle {
+  font-size: $font-size-2xl;
+  font-weight: 700;
+  margin: 0;
+
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+}
+
+.infoCardTagline {
+  font-size: $font-size-base;
+  margin: 0;
+  opacity: 0.95;
+
+  @include respond-to('md') {
+    font-size: $font-size-lg;
+  }
+}
+
+.infoCardContent {
+  @include flex-column;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+
+  @include respond-to('md') {
+    padding: $spacing-xl $spacing-2xl;
+    gap: $spacing-xl;
+  }
+}
+
+.infoCardIntro {
+  font-size: $font-size-base;
+  color: $color-gray-700;
+  line-height: 1.6;
+  margin: 0;
+
+  strong {
+    color: $color-primary;
+    font-weight: 600;
+  }
+
+  @include respond-to('md') {
+    font-size: $font-size-lg;
+  }
+}
+
+.infoCardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+  }
+
+  @include respond-to('lg') {
+    gap: $spacing-xl;
+  }
+}
+
+.infoFeature {
+  @include flex-column;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background-color: $color-gray-50;
+  border-radius: $radius-md;
+  border-left: 4px solid $color-primary;
+  @include transition(transform, background-color);
+
+  @include respond-to('md') {
+    padding: $spacing-lg;
+    gap: $spacing-lg;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    background-color: $color-gray-100;
+  }
+}
+
+.infoFeatureIcon {
+  font-size: 2rem;
+  color: $color-primary;
+
+  @include respond-to('md') {
+    font-size: 2.5rem;
+  }
+}
+
+.infoFeatureText {
+  @include flex-column;
+  gap: $spacing-sm;
+
+  h4 {
+    font-size: $font-size-lg;
+    color: $color-gray-900;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.infoCardFooter {
+  @include flex-center;
+  padding: $spacing-lg;
+  background-color: $color-gray-50;
+  border-top: 1px solid $color-gray-200;
+
+  @include respond-to('md') {
+    padding: $spacing-xl $spacing-2xl;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $color-gray-700;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
+
+    @include respond-to('md') {
+      font-size: $font-size-base;
+    }
+  }
+}

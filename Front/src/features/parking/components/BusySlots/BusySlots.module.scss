@@ -1,0 +1,111 @@
+@import '../../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+  animation: fadeInUp $transition-slow ease-out;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  align-items: center;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  h1 {
+    font-size: $font-size-2xl;
+    color: $color-gray-900;
+    font-weight: 700;
+    margin: 0;
+
+    @include respond-to('md') {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  p {
+    font-size: $font-size-base;
+    color: $color-gray-600;
+    margin: 0;
+  }
+}
+
+.count {
+  justify-self: start;
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-lg;
+  background-color: $color-red-500;
+  color: $color-white;
+  border-radius: $radius-md;
+  font-weight: 600;
+
+  strong {
+    font-size: $font-size-lg;
+  }
+
+  @include respond-to('md') {
+    justify-self: end;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  width: 100%;
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+  }
+  @include respond-to('lg') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include respond-to('xl') {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.empty {
+  grid-column: 1 / -1;
+  @include flex-center;
+  @include flex-column;
+  gap: $spacing-md;
+  padding: $spacing-3xl $spacing-xl;
+  background-color: $color-gray-50;
+  border: 2px dashed $color-gray-200;
+  border-radius: $radius-md;
+  text-align: center;
+
+  h3 {
+    font-size: $font-size-xl;
+    color: $color-gray-800;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  p {
+    color: $color-gray-600;
+    margin: 0;
+  }
+}

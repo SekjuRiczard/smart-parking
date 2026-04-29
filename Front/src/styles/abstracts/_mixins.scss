@@ -1,0 +1,102 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin transition($properties...) {
+  transition-property: #{$properties};
+  transition-duration: $transition-base;
+  transition-timing-function: ease;
+}
+
+@mixin smooth-transition {
+  transition: all $transition-base cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@mixin gradient-overlay($from, $to, $opacity: 0.2) {
+  position: absolute;
+  inset: -0.125rem;
+  background: linear-gradient(to right, $from, $to);
+  opacity: $opacity;
+  border-radius: inherit;
+  filter: blur(1rem);
+  transition: opacity $transition-slow;
+}
+
+@mixin gradient-bg($from, $to) {
+  background: linear-gradient(to right, $from, $to);
+}
+
+@mixin hover-lift {
+  transition: transform $transition-base ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@mixin hover-scale {
+  transition: transform $transition-base ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin focus-ring($color: $color-primary) {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba($color, 0.1);
+}
+
+@mixin animate(
+  $animation,
+  $duration: $transition-base,
+  $delay: 0s,
+  $timing: ease-in-out
+) {
+  animation: $animation $duration $delay $timing;
+}
